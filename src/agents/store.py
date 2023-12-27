@@ -56,4 +56,11 @@ async def handel_search(ctx: Context, sender: str, msg: Search):
 
 @agent.on_message(model=PlaceOrder)
 async def place_order(ctx, sender, msg):
-    print(msg)
+    data = msg.item
+    for i in data:
+        ctx.logger.info(f"You have ordered {i} of cost {data[i]['price']}")
+
+    ctx.logger.info("Order Placed Successfully\n\n\n\n\n")
+    
+
+
